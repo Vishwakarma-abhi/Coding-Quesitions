@@ -16,6 +16,7 @@ public class Twosum {
         System.out.println("Enter targeted sum value");
         int target = sc.nextInt();
         Twosum call = new Twosum();
+        
         call.twosum(nums, size, target);     
     }
 

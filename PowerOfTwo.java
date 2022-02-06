@@ -1,15 +1,19 @@
 public class PowerOfTwo {
     public static void main(String[] args) {
-        int n = 10;
-
-        boolaen result = powerof2(n);
-        if(result)
+        int n = 16;
+        int i = 1;
+        int temp;
+        while ( temp != n)
         {
-            System.out.println("Yes ");
+            temp = Math.pow(2, i);
+            i++; 
         }
-        else
+        if(temp == n )
         {
-            System.out.println("No");
+            System.out.println("Mission Pass");
+        }
+        else{
+            System.out.println("Mission Fail");
         }
     }
     
