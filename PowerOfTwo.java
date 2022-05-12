@@ -1,20 +1,31 @@
 public class PowerOfTwo {
     public static void main(String[] args) {
-        int n = 16;
-        int i = 1;
-        int temp;
-        while ( temp != n)
+        int num = 15;
+        
+        int mask = 1;
+        boolean res = false;
+        while(num != mask)
         {
-            temp = Math.pow(2, i);
-            i++; 
+            if(num == mask)
+            {
+                res = true;
+                break;
+
+            }
+            mask = mask << 1;
         }
-        if(temp == n )
+        System.out.println(mask);
+        if(res)
         {
-            System.out.println("Mission Pass");
+            System.out.println("false");
         }
         else{
-            System.out.println("Mission Fail");
+            System.out.println("true");
         }
+
+      
+        
+        
     }
     
 }

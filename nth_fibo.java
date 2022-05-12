@@ -19,6 +19,6 @@ public class nth_fibo {
 
         //recurvive equation
         return fibo(n-1)+fibo(n-2); 
-    }    
+    }   
     
 }

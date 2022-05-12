@@ -1,53 +1,64 @@
-import java.util.LinkedList;
+//Singly Linked List
+
 import java.util.Scanner;
-
-class middlelinkedlist
-{
-    
+public class middle_linkedlist {
     public static void main(String[] args) {
-        Scanner sc =new Scanner(System.in);
-        middlelinkedlist list =new middlelinkedlist();
-        Node head;
-        list.insert_end(head);
-        list.display(head);
-        list.middle(head);
+        Linkedlist list=new Linkedlist();
+        
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Welcome to the Linkked List");
+        System.out.println("____________________________\n");
+        System.out.println("Let's Perform Single Linked List  middle element ");
+        
+        for (int i = 0; i < 7; i++) {
+            list.insert_end();
+        }
+        list.display();
+        System.out.println();
+        list.middle_element();
+        list.display();
     }
+    
+}
 
-    //Naive Approach ( 1st Approach)
-    void middle(Node head)
+//Node creation 
+
+class Node
+{
+    int data;
+    Node next;   //reference
+    
+}
+class Linkedlist{
+
+    Scanner sc=new Scanner(System.in);
+    Node head; //first node
+
+    public void middle_element()
     {
-
-        middlelinkedlist list =new middlelinkedlist();
-        Node result;
         if(head == null)
         {
+            System.out.println("List is empty");
+        }
 
-            System.out.println("List is Empty");
-        }
-        int count = 0;
-        while(head.next != null)
+        Node slow = head;
+        Node fast = head;
+        while(fast != null &&  fast.next != null)
         {
-            count++;
-            head = head.next;
+            //fast pointer taking 2x jump
+            fast = fast.next.next;
+            //slow pointer takees x jump 
+            slow = slow.next;
         }
-        int i = 0;
-        while(head.next != null)
-        {
-            if(i == count)
-            {
-                list.display(head);
-                break;
-            }
-            i++;
-            head = head.next; 
-        }
-        
+        System.out.println("Middle element is "+slow.data);
+        System.out.println("Deleted element is "+ slow.data);
+        slow.next = slow.next.next;
+
 
     }
-    public void insert_end(Node head)
+    public void insert_end()
     {
-        Scanner sc = new Scanner(System.in);
-        Node node;
+        Node node=new Node();
         System.out.println("Enter  data to create new node ");
         int d = sc.nextInt();
         node.data=d;
@@ -71,25 +82,36 @@ class middlelinkedlist
                                 // now is of node is stored instead of null 
         }
     }
-    void display(Node head)
+
+
+
+    public void display() 
     {
-        while(head != null)
+        Node n=head;          // temporary (Node) Object for travelling
+
+        if(head==null)
         {
-            System.out.println(head.data +" ");
-            head=head.next;
+            System.out.println("Your Linked List is Empty");
         }
+        else
+        {
+            System.out.println("\n\t Our Linked List is \t");
+            while(n.next != null)
+            {
+                System.out.print(n.data+ "\n");
+                n=n.next;           // pointing to the next node
+                
+            }
+            System.out.print(n.data);
+        }
+            
+            
     }
+
+    
+
+    
+
 }
 
-class Node
-{
-    int data;
-    Node next;
-    Node(int item)
-    {
-        data = item;
-        next = null;
-        
-        
-    }
-}
+
