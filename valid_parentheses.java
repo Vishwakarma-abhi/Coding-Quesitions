@@ -21,6 +21,15 @@ public class valid_parentheses {
 
         for (int i = 0; i < str.length(); i++) {
 
+            /*
+             * First We Add the open brackets in the Stack
+             * Next We Start Comparing the the peek of the stack with the next element of
+             * the stack if it is opposite
+             * then it it is ok else we return false
+             * It means we get a valid parentheses
+             * 
+             */
+
             if (str.charAt(i) == '(' || str.charAt(i) == '[' || str.charAt(i) == '{') {
                 brackets.add(str.charAt(i));
             }
